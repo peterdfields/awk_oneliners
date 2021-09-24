@@ -7,4 +7,4 @@
 
 #### Convert fasta headers to numbers
 
-awk '/^>/{print ">" ++i; next}{print}' file.fasta > file.header_mod.fasta
+`awk '/^>/{print ">" ++i; next}{print}' file.fasta > file.header_mod.fasta`
