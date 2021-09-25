@@ -5,6 +5,6 @@
 `awk 'FNR==NR {a[$0]++; next} !($0 in a)' file1 file2`
 
 
-#### Convert fasta headers to numbers
+#### Convert fasta headers to numbers (see https://www.biostars.org/p/53212/).
 
 `awk '/^>/{print ">" ++i; next}{print}' file.fasta > file.header_mod.fasta`
