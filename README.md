@@ -9,6 +9,6 @@
 
 `awk '/^>/{print ">" ++i; next}{print}' file.fasta > file.header_mod.fasta`
 
-#### Convert fasta headers to numbers w/a prefix (see https://www.biostars.org/p/53212/).
+#### Convert fasta headers to numbers w/a prefix, 'chromosome' here (see https://www.biostars.org/p/53212/).
 
 `awk '/^>/{print ">chromosome" ++i; next}{print}' < file.fasta`
