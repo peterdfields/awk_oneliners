@@ -1,4 +1,4 @@
-# awk_oneliners
+# awk oneliners
 
 #### Find unique values between two files (see https://stackoverflow.com/questions/4717250/extracting-unique-values-between-2-sets-files).
 
@@ -12,3 +12,7 @@
 #### Convert fasta headers to numbers w/a prefix, 'chromosome' here (see https://www.biostars.org/p/53212/).
 
 `awk '/^>/{print ">chromosome" ++i; next}{print}' < file.fasta`
+
+#### Remove vcf header (see https://www.biostars.org/p/49660/)
+
+`awk '! /\#/' variants.VCF > no_header.VCF`
