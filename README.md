@@ -16,3 +16,6 @@
 #### Remove vcf header (see https://www.biostars.org/p/49660/)
 
 `awk '! /\#/' variants.VCF > no_header.VCF`
+
+#### Get the average of a column, here column 2 (see https://stackoverflow.com/questions/19149731/use-awk-to-find-average-of-a-column)
+`awk -v N=2 '{ sum += $N } END { if (NR > 0) print sum / NR }'`
