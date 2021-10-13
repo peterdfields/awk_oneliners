@@ -38,3 +38,7 @@ awk 'NR%4==1{n=$1}NR%4==2{s=$1}NR%4==0{print n,s,$1}' r2.fq | sort -S 2G | join 
 awk '{ for (i=1; i<=NF; i++) RtoC[i]= (RtoC[i]!=""? RtoC[i] FS $i: $i) } 
     END{ for (i in RtoC) print RtoC[i] }' infile
 ```
+
+#### Merge two files by column and select a subset of columns in resultant file (see https://theglassicon.com/tip-of-the-day/awk-script-merge-columns-files/)
+#### Here there are two files, both two columns, and we merge column two from the first file with column one from the second.
+`pr -m -t -s\  file1 file2 | awk '{print $2,$3}' > out_file.txt`
