@@ -26,3 +26,9 @@ mkfifo tmp
 awk 'NR%4==1{n=$1}NR%4==2{s=$1}NR%4==0{print n,s,$1}' r1.fq | sort -S 2G > tmp &
 awk 'NR%4==1{n=$1}NR%4==2{s=$1}NR%4==0{print n,s,$1}' r2.fq | sort -S 2G | join -a1 -a2 tmp - | awk 'NF==5{print $1"\n"$2"\n+\n"$3 >"x1.fq";print $1"\n"$4"\n+\n"$5 >"x2.fq"}NF==3{print $1"\n"$2"\n+\n"$3>"orphan.fq"}'
 ```
+
+#### Add text at the beginning of lines 1-10, inplace (see https://stackoverflow.com/questions/9533679/how-to-insert-a-text-at-the-beginning-of-a-file)
+`sed -i '1,10s/^/<added text> /' file`
+
+#### Add line at the beginning of file, inplace
+`sed -i '1s/^/<added text> \n/' file`
