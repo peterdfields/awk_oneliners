@@ -45,3 +45,11 @@ awk '{ for (i=1; i<=NF; i++) RtoC[i]= (RtoC[i]!=""? RtoC[i] FS $i: $i) }
 
 #### subset file by specific row number (see https://stackoverflow.com/questions/6491532/how-to-subset-a-file-select-a-numbers-of-rows-or-columns)
 `cat largefile | awk 'NR >= 10000  && NR <= 100000 { print }'`
+
+#### split multi-fasta file into individual fasta files, each named after the sequence from the fasta (see https://gist.github.com/astatham/621901)
+```
+cat hg18.fa | awk '{
+        if (substr($0, 1, 1)==">") {filename=(substr($0,2) ".fa")}
+        print $0 > filename
+}'
+```
