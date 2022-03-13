@@ -53,3 +53,6 @@ cat hg18.fa | awk '{
         print $0 > filename
 }'
 ```
+
+#### remove pipe and everythign after from fasta header (see https://stackoverflow.com/questions/18602234/sed-to-remove-everything-after-in-file-using-command)
+`sed -i 's/[|].*$//' some.fasta`
